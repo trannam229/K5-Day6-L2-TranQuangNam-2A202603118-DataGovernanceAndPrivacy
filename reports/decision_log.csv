@@ -1,0 +1,7 @@
+ts,scope,status,canonical,reason_code,reason,owner,evidence
+2026-11-14T08:54:07+00:00,t14,HOLD,HOLD,POLICY_NOT_IMPLEMENTED,Decision policy not implemented yet,Trần Quang Nam (Lead / Integrator),
+2026-11-14T08:55:21+00:00,t14,HOLD,HOLD,POLICY_NOT_IMPLEMENTED,Decision policy not implemented yet,Trần Quang Nam (Lead / Integrator),
+2026-11-14T08:56:10+00:00,t14,HOLD,HOLD,POLICY_NOT_IMPLEMENTED,Decision policy not implemented yet,Trần Quang Nam (Lead / Integrator),
+2026-11-14T09:06:41+00:00,t14,HOLD,HOLD,POLICY_NOT_IMPLEMENTED,Decision policy not implemented yet,Trần Quang Nam (Lead / Integrator),
+2026-11-14T10:18:52+00:00,t14,HOLD,HOLD,REVIEW_INCOMPLETE,22/30 queued boxes have a final human decision (approve/reject/edit),Trần Quang Nam (Lead / Integrator),out/poc/predictions.csv;out/poc/review_queue.csv;out/poc/audit_log.jsonl;out/poc/export/qa_report.json
+2026-11-14T10:35:40+00:00,t14,GO,GO,REVIEW_COMPLETE_LABELS_VALID,"all 30 queued boxes reviewed, invalid-label rate = 0, export QA passed",Trần Quang Nam (Lead / Integrator),out/poc/predictions.csv;out/poc/review_queue.csv;out/poc/audit_log.jsonl;out/poc/export/qa_report.json

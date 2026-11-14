@@ -1,0 +1,31 @@
+rank,item_id,score,reason,suggested_action,slice,evidence_path,reviewer,reviewer_decision,override_value,review_note,reviewed_at
+1,aa_38#151,0.659,borderline_conf(0.38 vs thr 0.40); small(116px2),restore? (below threshold),pedestrian/small/dropped,images/aa_38.jpg,Trần Quang Nam,reject,,"""nam sat mep phai anh (rong ~2px)"," khong the xac dinh la nguoi; khong khoi phuc"""
+2,aa_50#191,0.644,borderline_conf(0.38 vs thr 0.40); small(101px2),restore? (below threshold),pedestrian/small/dropped,images/aa_50.jpg,Trần Quang Nam,approve,,"""nguoi di bo ro (dau cam", ao xanh)
+3,aa_14#060,0.639,borderline_conf(0.37 vs thr 0.40); small(77px2),restore? (below threshold),pedestrian/small/dropped,images/aa_14.jpg,Trần Quang Nam,approve,,"""nguoi di bo canh dem"," box lech trai nhe nhung van phu doi tuong"""
+4,aa_04#017,0.63,borderline_conf(0.37 vs thr 0.40); small(92px2),restore? (below threshold),pedestrian/small/dropped,images/aa_04.jpg,Trần Quang Nam,approve,,"""nguoi di bo ro"," box khop"""
+5,aa_09#040,0.617,borderline_conf(0.36 vs thr 0.40); small(97px2),restore? (below threshold),pedestrian/small/dropped,images/aa_09.jpg,Trần Quang Nam,approve,,"""nguoi di bo tuong phan thap (mo) nhung thay dau + than"," box khop"""
+6,aa_45#177,0.579,borderline_conf(0.30 vs thr 0.25); small(148px2),approve | delete | edit class/box,motorbike/small/kept,images/aa_45.jpg,Trần Quang Nam,approve,,"""xe may canh dem", class dung
+7,aa_05#022,0.572,borderline_conf(0.34 vs thr 0.40); small(90px2),restore? (below threshold),pedestrian/small/dropped,images/aa_05.jpg,Trần Quang Nam,approve,,nguoi di bo ro; box hoi ngan o phan chan nhung chap nhan duoc,2026-11-14T09:15:07.000Z
+8,aa_23#099,0.547,borderline_conf(0.32 vs thr 0.25); small(118px2),approve | delete | edit class/box,sign/small/kept,images/aa_23.jpg,Trần Quang Nam,approve,,"""bien bao tron do"," box khop"""
+9,aa_19#083,0.523,borderline_conf(0.34 vs thr 0.40),restore? (below threshold),pedestrian/dropped,images/aa_19.jpg,VoDuyThanh,approve,,"""Người đi bộ thật (đầu tròn + thân tím)", ảnh đêm áo tối nên conf thấp 0.338 < thr 0.40. Box ôm đủ
+10,aa_08#033,0.468,borderline_conf(0.30 vs thr 0.40); small(100px2),restore? (below threshold),pedestrian/small/dropped,images/aa_08.jpg,VoDuyThanh,approve,,"""Người đi bộ thật ở xa (đầu tròn + áo xanh đậm)", rất nhỏ ~100px² nên conf thấp 0.297 < thr 0.40. Box hụt nhẹ ở chân
+11,aa_16#067,0.437,borderline_conf(0.28 vs thr 0.40); small(82px2),restore? (below threshold),pedestrian/small/dropped,images/aa_16.jpg,VoDuyThanh,approve,,"""Người đi bộ thật (đầu tròn + thân hồng nâu)"," tương phản thấp với nền đường nên conf 0.283 < thr 0.40."""
+12,aa_27#224,0.414,borderline_conf(0.34 vs thr 0.40),restore? (below threshold),pedestrian/dropped,images/aa_27.jpg,VoDuyThanh,reject,drop,"""False positive: vùng cỏ trống"," không có object nào. Conf 0.342 < thr 0.40"""
+13,aa_07#029,0.399,borderline_conf(0.12 vs thr 0.25); small(90px2),restore? (below threshold),sign/small/dropped,images/aa_07.jpg,VoDuyThanh,approve,,"""Biển stop thật (tròn đỏ viền trắng", có cột)
+14,aa_24#103,0.392,borderline_conf(0.43 vs thr 0.40),approve | delete | edit class/box,pedestrian/kept,images/aa_24.jpg,VoDuyThanh,approve,,"""Người đi bộ thật (đầu cam + thân xanh lá)"," box vừa. Conf 0.426 sát ngưỡng 0.40"""
+15,aa_53#200,0.389,borderline_conf(0.37 vs thr 0.40),restore? (below threshold),motorbike/dropped,images/aa_53.jpg,VoDuyThanh,approve,,"""Xe máy thật (người lái thân nâu + xe xanh lá + 2 bánh đen)"," box ôm sát. Đứng sát sau ô tô xanh cùng tông màu nên conf 0.373 < thr 0.40"""
+16,aa_42#165,0.383,borderline_conf(0.43 vs thr 0.40),approve | delete | edit class/box,car/kept,images/aa_42.jpg,Bùi Anh Dũng,edit,x=163; y=98; w=40; h=24,Không bao quát hết phần xe,2026-11-14T10:24:28.769Z
+17,aa_52#196,0.37,borderline_conf(0.44 vs thr 0.40),approve | delete | edit class/box,car/kept,images/aa_52.jpg,Bùi Anh Dũng,edit,x=129; y=94; w=34; h=19,Không bao quát hết phần xe ,2026-11-14T10:24:47.377Z
+18,aa_26#109,0.369,borderline_conf(0.55 vs thr 0.40); small(118px2),approve | delete | edit class/box,pedestrian/small/kept,images/aa_26.jpg,Bùi Anh Dũng,approve,,,2026-11-14T10:25:05.386Z
+19,aa_26#110,0.369,borderline_conf(0.44 vs thr 0.40),approve | delete | edit class/box,motorbike/kept,images/aa_26.jpg,Bùi Anh Dũng,approve,,,2026-11-14T10:25:40.265Z
+20,aa_18#076,0.364,borderline_conf(0.36 vs thr 0.40),restore? (below threshold),car/dropped,images/aa_18.jpg,Bùi Anh Dũng,edit,x=157; y=114; w=50; h=31,Không bao quát hết phần xe,2026-11-14T10:25:18.529Z
+21,aa_31#126,0.353,borderline_conf(0.40 vs thr 0.25); small(136px2),approve | delete | edit class/box,sign/small/kept,images/aa_31.jpg,Bùi Anh Dũng,approve,,,2026-11-14T10:25:14.665Z
+22,aa_10#220,0.301,borderline_conf(0.33 vs thr 0.40),restore? (below threshold),pedestrian/dropped,images/aa_10.jpg,Bùi Anh Dũng,reject,,,2026-11-14T10:25:44.273Z
+23,aa_59#233,0.299,borderline_conf(0.33 vs thr 0.40),restore? (below threshold),car/dropped,images/aa_59.jpg,Bùi Anh Dũng,reject,,,2026-11-14T10:25:48.369Z
+24,aa_26#111,0.28,borderline_conf(0.57 vs thr 0.40),approve | delete | edit class/box,sign/kept,images/aa_26.jpg,Member 4,approve,,,2026-11-14T09:55:55.801Z
+25,aa_25#106,0.268,borderline_conf(0.55 vs thr 0.40),approve | delete | edit class/box,pedestrian/kept,images/aa_25.jpg,Member 4,approve,,,2026-11-14T10:11:31.785Z
+26,aa_24#101,0.262,borderline_conf(0.49 vs thr 0.40),approve | delete | edit class/box,car/kept,images/aa_24.jpg,Member 4,approve,,,2026-11-14T09:56:25.547Z
+27,aa_05#023,0.25,small(98px2),approve | delete | edit class/box,motorbike/small/kept,images/aa_05.jpg,Member 4,approve,,,2026-11-14T09:58:37.040Z
+28,aa_02#010,0.25,small(122px2),approve | delete | edit class/box,sign/small/kept,images/aa_02.jpg,Member 4,approve,,,2026-11-14T09:56:38.819Z
+29,aa_49#188,0.25,small(150px2),approve | delete | edit class/box,motorbike/small/kept,images/aa_49.jpg,Member 4,approve,,,2026-11-14T10:02:28.182Z
+30,aa_18#079,0.25,small(98px2),approve | delete | edit class/box,sign/small/kept,images/aa_18.jpg,Member 4,approve,,,2026-11-14T09:56:48.100Z

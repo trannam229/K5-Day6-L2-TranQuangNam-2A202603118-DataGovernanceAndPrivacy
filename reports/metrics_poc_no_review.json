@@ -1,0 +1,115 @@
+{
+  "run_name": "poc_no_review",
+  "track": "t14",
+  "created_at": "2026-11-14T10:37:14+00:00",
+  "git_sha": "029f1cf",
+  "seed": 42,
+  "n_items": 233,
+  "runtime_seconds": 0.1418,
+  "runtime_per_100_items_s": 0.0609,
+  "machine": {
+    "python": "3.11.14",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "processor": "arm"
+  },
+  "config": {
+    "iou": 0.5,
+    "split": "eval"
+  },
+  "metrics": [
+    {
+      "name": "Detection F1@IoU0.5",
+      "value": 0.864516129032258,
+      "direction": "higher",
+      "unit": "class-aware greedy match",
+      "numerator": null,
+      "denominator": null,
+      "n": 83,
+      "slice": "all",
+      "primary": true,
+      "notes": "",
+      "extra": {}
+    },
+    {
+      "name": "Precision",
+      "value": 0.9305555555555556,
+      "direction": "higher",
+      "unit": "TP/(TP+FP)",
+      "numerator": 67,
+      "denominator": 72,
+      "n": null,
+      "slice": "all",
+      "primary": false,
+      "notes": "",
+      "extra": {}
+    },
+    {
+      "name": "Recall",
+      "value": 0.8072289156626506,
+      "direction": "higher",
+      "unit": "TP/(TP+FN)",
+      "numerator": 67,
+      "denominator": 83,
+      "n": null,
+      "slice": "all",
+      "primary": false,
+      "notes": "",
+      "extra": {}
+    },
+    {
+      "name": "Invalid-label rate",
+      "value": 0.0,
+      "direction": "lower",
+      "unit": "exported boxes with unknown class or out-of-bounds / exported boxes",
+      "numerator": 0,
+      "denominator": 72,
+      "n": null,
+      "slice": "all",
+      "primary": false,
+      "notes": "",
+      "extra": {}
+    }
+  ],
+  "extra": {
+    "gt": "fixtures/t14_auto_annotation/internal_gt_boxes.csv",
+    "pred": "/private/tmp/claude-501/-Users-namtran-work-vinai/5c67ca05-4393-46bb-b6ab-3c461327040c/scratchpad/poc_noreview/predictions.csv",
+    "notes": [],
+    "slices": [
+      {
+        "slice": "class=car",
+        "n": 39,
+        "recall": 0.8974358974358975,
+        "precision": 1.0,
+        "f1": 0.945945945945946
+      },
+      {
+        "slice": "class=motorbike",
+        "n": 12,
+        "recall": 0.8333333333333334,
+        "precision": 0.9090909090909091,
+        "f1": 0.8695652173913043
+      },
+      {
+        "slice": "class=pedestrian",
+        "n": 23,
+        "recall": 0.5652173913043478,
+        "precision": 0.8125,
+        "f1": 0.6666666666666667
+      },
+      {
+        "slice": "class=sign",
+        "n": 9,
+        "recall": 1.0,
+        "precision": 0.9,
+        "f1": 0.9473684210526316
+      },
+      {
+        "slice": "small_objects(<150px²)",
+        "n": 10,
+        "recall": 0.5,
+        "precision": NaN,
+        "f1": NaN
+      }
+    ]
+  }
+}
