@@ -1,5 +1,5 @@
 member,git_author_name,git_email,role,modules_files,commit_shas,evidence_note,presenter
-Trần Quang Nam,namtran,tranquangnam244@gmail.com,Lead / Data & Baseline,"configs/lab.yaml; src/pipeline.py (load); src/baseline_t14.py",,,yes
-Võ Duy Thành,11thanh2233,11thanh2233@gmail.com,Core Algorithm & Exporter,"src/t14_processor.py; src/pipeline.py (integration)",,,no
-Bùi Anh Dũng,Bui1234,buianhdung157@gmail.com,Human-in-the-Loop & Decision Gate,"src/t14_reviewer.py; out/poc/review_queue_reviewed.csv",,,no
-Nguyễn Minh Hiếu,harutoryuoma,harutoryuoma@gmail.com,"QA / Metric, Unit Tests & Report","tests/test_t14_pipeline.py; reports/metric_contract.md; reports/group_report.md; reports/team_contributions.csv",,,yes
+Trần Quang Nam,namtran,tranquangnam244@gmail.com,Lead / Data & Baseline,configs/lab.yaml; src/pipeline.py (load); src/baseline_t14.py,9d0a2c1; c4b1a58; 3c50544; eec0d04,load() + provenance; baseline + internal GT; reviewer rewrite + tests; metrics & report,yes
+Võ Duy Thành,VoDuyThanh,11thanh2233@gmail.com,Core Algorithm & Exporter,src/t14_processor.py; src/pipeline.py (integration),6fa93c0; 3419c89,core algorithm + YOLO/COCO export; wiring into run(); reviewed rank 9-15,no
+Bùi Anh Dũng,Bui Dung,148409997+Bui1234@users.noreply.github.com,Human-in-the-Loop & Decision Gate,src/t14_reviewer.py; out/poc/review_queue_reviewed.csv,8073385; 456a271,first version of review/decide; team_contributions.csv; reviewed rank 16-23,no
+Nguyễn Minh Hiếu,harutoryuoma,harutoryuoma@gmail.com,"QA / Metric, Unit Tests & Report",tests/test_t14_pipeline.py; reports/metric_contract.md; reports/group_report.md; reports/team_contributions.csv,c39fa88; 79e05ad,metric_contract.md; tests/test_t14_pipeline.py; reviewed rank 24-30,yes
