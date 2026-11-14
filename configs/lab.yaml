@@ -16,8 +16,8 @@ strict_provenance: true           # fail if manifest.csv hashes do not match
 params:
   conf_threshold: 0.25
   budget: 30
-  class_conf_threshold: {car: 0.40, pedestrian: 0.40, motorbike: 0.40, sign: 0.40}
+  class_conf_threshold: {car: 0.40, pedestrian: 0.33, motorbike: 0.40, sign: 0.40}
   small_area: 150
-  small_classes: [sign, motorbike]
+  small_classes: [sign, motorbike, pedestrian]
   small_conf_threshold: 0.25
   score_weights: {margin: 0.45, overlap: 0.30, small: 0.25}
