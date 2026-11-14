@@ -1,4 +1,3 @@
-
 member,git_author_name,git_email,role,modules_files,commit_shas,evidence_note,presenter
 Trần Quang Nam,namtran,tranquangnam244@gmail.com,Lead / Data & Baseline,"configs/lab.yaml; src/pipeline.py (load); src/baseline_t14.py",,"GitHub: https://github.com/trannam229; Cấu hình T14; load dữ liệu; baseline conf >= 0.25; internal GT",yes
 Bùi Anh Dũng,Bui1234,buianhdung157@gmail.com,Core Algorithm & Exporter,"src/t14_processor.py; src/pipeline.py (integration)",,"GitHub: https://github.com/Bui1234; Ánh xạ class ID; clipping bounding box 320x180; lọc confidence; ranking Top-B 30; exporter",no
