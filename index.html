@@ -1329,6 +1329,27 @@ git shortlog -sne --all`;
       return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
     }
 
+    // Đọc CSV có ô bọc ngoặc kép (dấu phẩy, xuống dòng, "" trong ô) — ngược lại với csvEscape
+    function parseCsv(text) {
+      const rows = [];
+      let row = [], cell = "", quoted = false;
+      for (let i = 0; i < text.length; i++) {
+        const ch = text[i];
+        if (quoted) {
+          if (ch === '"' && text[i + 1] === '"') { cell += '"'; i++; }
+          else if (ch === '"') quoted = false;
+          else cell += ch;
+        } else if (ch === '"') quoted = true;
+        else if (ch === ",") { row.push(cell); cell = ""; }
+        else if (ch === "\n" || ch === "\r") {
+          if (ch === "\r" && text[i + 1] === "\n") i++;
+          row.push(cell); rows.push(row); row = []; cell = "";
+        } else cell += ch;
+      }
+      if (cell !== "" || row.length) { row.push(cell); rows.push(row); }
+      return rows.filter(r => r.some(c => c !== ""));
+    }
+
     function downloadFile(filename, content, mime = "text/plain;charset=utf-8") {
       const blob = new Blob([content], { type: mime });
       const a = document.createElement("a");
@@ -1545,9 +1566,9 @@ Nếu baseline = 0 thì ghi rõ "baseline = 0" thay vì phần trăm cải thi�
         let mergedCount = 0;
         for (const file of files) {
           const text = await file.text();
-          const rows = text.trim().split(/\r?\n/);
+          const rows = parseCsv(text.replace(/^﻿/, ""));
           if (rows.length < 2) continue;
-          const headers = rows[0].split(",");
+          const headers = rows[0];
           const idIdx = headers.indexOf("item_id");
           const decIdx = headers.indexOf("reviewer_decision");
           const revIdx = headers.indexOf("reviewer");
@@ -1555,7 +1576,7 @@ Nếu baseline = 0 thì ghi rõ "baseline = 0" thay vì phần trăm cải thi�
           const noteIdx = headers.indexOf("review_note");
           const atIdx = headers.indexOf("reviewed_at");
           for (let i = 1; i < rows.length; i++) {
-            const cols = rows[i].split(",");
+            const cols = rows[i];
             const itemId = cols[idIdx];
             const dec = cols[decIdx];
             if (itemId && dec) {
