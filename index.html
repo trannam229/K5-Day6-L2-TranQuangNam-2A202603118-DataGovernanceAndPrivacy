@@ -1466,27 +1466,51 @@ params: {}
 
       document.getElementById("exportMetricContractBtn").addEventListener("click", () => {
         const t = getTrack(state.trackId);
-        const ownerName = state.members[0]?.name || "Team Lead";
-        const nowStr = new Date().toISOString().slice(0, 16).replace("T", " ");
+        // Người 4 (QA / Metric) là người chốt contract; giờ ghi theo giờ Việt Nam
+        const ownerName = state.members[3]?.name || "Người 4";
+        const nowStr = new Date().toLocaleString("sv-SE", { timeZone: "Asia/Ho_Chi_Minh" }).slice(0, 16) + " (giờ VN)";
+        const isT14 = t.id === "t14";
+        const c = isT14 ? {
+          match: "Ghép tham lam theo từng ảnh, prediction xếp theo `conf` giảm dần; TP khi IoU ≥ 0.5 với một GT chưa ghép và cùng tên class (`src/metrics/detection.py::match_detections`). GT nhóm tự chấm: `fixtures/t14_auto_annotation/internal_gt_boxes.csv` (nhãn nội bộ, phần lớn dựa trên box của model nên không đo được sai lệch vị trí box)",
+          pool: "Toàn bộ box trong `fixtures/t14_auto_annotation/model_predictions_fixture.csv` (60 ảnh: 40 dev, 20 eval)",
+          budget: "B = 30 box",
+          threshold: "Chọn trên split `dev`, đóng băng trong `configs/lab.yaml` (`params`) trước khi chạy eval: `class_conf_threshold` theo từng class, `small_conf_threshold` cho box nhỏ (<150px²) thuộc `small_classes`",
+          evalSplit: "`eval` (20 ảnh)",
+          bad: "Miss: recall của slice `small_objects(<150px²)`; kèm Invalid-label rate (phải = 0)",
+          ci: "Wilson 95% CI cho precision / recall trên từng slice; ghi rõ N khi N < 30"
+        } : {
+          match: `Theo định nghĩa chuẩn trong \`src/metrics/tracks.py::eval_${t.id}\``,
+          pool: `\`${t.input}\``,
+          budget: `Theo \`configs/tracks/${t.id}.yaml\``,
+          threshold: "Chốt trên tập `dev`, tuyệt đối không tune trên `eval`",
+          evalSplit: "`eval` / `heldout`",
+          bad: "Invalid-label rate / False Positive / Miss Rate",
+          ci: "Wilson 95% CI / Bootstrap 1000 lần"
+        };
         const md = `# Metric contract (khai báo bắt buộc — chốt ở phút 30, trước khi chạy eval)
+
+> Các metric chuẩn đã được cài trong \`src/metrics/tracks.py\`. File này là nơi nhóm **cam kết** cách dùng chúng.
+> Không đổi testset, threshold hay trọng số sau khi đã thấy kết quả eval.
 
 | Mục | Khai báo của nhóm |
 |---|---|
 | Track | ${t.code} · ${t.title} |
-| Primary metric (tên đúng như evaluator in ra) | ${t.primary_metric} |
+| Primary metric (tên đúng như evaluator in ra) | ${t.primary_metric.replace(/\s*\(eval split\)$/, "")} |
 | Tăng tốt hay giảm tốt? | ${t.direction} |
 | Đơn vị đánh giá (image / region / pair / release / batch / case …) | ${t.unit} |
 | Công thức + numerator / denominator | ${t.formula} |
-| Cách ghép prediction ↔ GT (IoU? id? tolerance?) | Theo định nghĩa chuẩn trong \`src/metrics/tracks.py::eval_${t.id}\` |
-| Candidate pool cố định | \`${t.input}\` |
-| Review budget B / K | Theo \`configs/tracks/${t.id}.yaml\` (B=30 cho T14) |
+| Cách ghép prediction ↔ GT (IoU? id? tolerance?) | ${c.match} |
+| Candidate pool cố định | ${c.pool} |
+| Review budget B / K | ${c.budget} |
 | Seed | 42 |
-| Threshold policy (chọn trên dev như thế nào) | Chốt trên tập \`dev\`, tuyệt đối không tune trên \`eval\` |
-| Eval split (không dùng để tune) | \`eval\` / \`heldout\` |
-| Chỉ số lỗi xấu (miss / false alarm / false reject) | Invalid-label rate / False Positive / Miss Rate |
+| Threshold policy (chọn trên dev như thế nào) | ${c.threshold} |
+| Eval split (không dùng để tune) | ${c.evalSplit} |
+| Chỉ số lỗi xấu (miss / false alarm / false reject) | ${c.bad} |
 | Slices sẽ báo cáo (≥2) | ${t.slices} |
-| Cách báo độ bất định khi N nhỏ (Wilson CI / bootstrap) | Wilson 95% CI / Bootstrap 1000 lần |
+| Cách báo độ bất định khi N nhỏ (Wilson CI / bootstrap) | ${c.ci} |
 | Ngày giờ chốt + người chốt | ${nowStr} · ${ownerName} (${state.groupId}) |
+
+Nếu baseline = 0 thì ghi rõ "baseline = 0" thay vì phần trăm cải thiện.
 `;
         downloadFile("metric_contract.md", md, "text/markdown;charset=utf-8");
         showToast("Đã tải metric_contract.md!");
